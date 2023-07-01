@@ -104,12 +104,15 @@
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                             <div class="row">
                                 <div class="col-8">
-                                    <label for="inputPassword2" class="visually-hidden">Password</label>
+                                    <label for="inputTimestamp" class="visually-hidden">Timestamp</label>
                                     <input type="text" class="form-control" id="inputTimestamp" placeholder="Timestamp">
                                 </div>
                                 <div class="col-4">
                                     <button id="btnChange" type="button" class="btn btn-primary">Change</button>
                                 </div>
+                            </div>
+                            <div id="timestampResult" style="display: none;" class="alert alert-primary mt-2" role="alert">
+                                
                             </div>
                         </div>
                     </div>
@@ -187,8 +190,11 @@
         window.onload = function(){  
             var btn = document.getElementById("btnChange");
             var timestamp = document.getElementById("inputTimestamp");
+            var timestampResult = document.getElementById("timestampResult");
             btn.addEventListener('click', function() {
-                alert(changeDate(timestamp.value))
+                timestampResult.style.display = 'block';
+                timestampResult.innerHTML = changeDate(timestamp.value);
+                // alert(changeDate(timestamp.value))
             });  
         }
         function changeDate(timestamp) {
